@@ -1,0 +1,71 @@
+html, body {
+    height: 100vh;
+    margin: 0;
+    background: rgb(232,131,22);
+    background: radial-gradient(circle, rgba(232,131,22,1) 0%, rgba(228,163,39,1) 35%, rgba(255,192,0,1) 100%);
+    font-family: "mifuente";
+    overflow: hidden;
+}
+
+h1 {
+    font-size: 80px;
+    margin: 20px 0; /* Establece un margen arriba y abajo */
+}
+
+.entero {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* margin-top: 70px; */
+}
+
+.box {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px; /* Añade un margen abajo */
+}
+
+.imagen {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.left-column, .right-column {
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 25px; /* Añade espacio entre los elementos internos */
+}
+
+button {
+    border-radius: 70%;
+    width: 100px;
+    height: 100px;
+    font-family: "mifuente";
+    margin: 20px 0; /* Establece un margen arriba y abajo */
+}
+
+p {
+    font-family: "comida";
+    font-size: 125px;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0; /* Establece un margen arriba y abajo */
+}
+
+@font-face {
+    font-family: "mifuente";
+    src: url(../assets/fonts/Super\ Senior\ Personal\ Use.ttf);
+}
+
+@font-face {
+    font-family: "comida";
+    src: url(../assets/fonts/PWFoodblog.ttf);
+}

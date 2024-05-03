@@ -1,0 +1,92 @@
+html, body {
+    height: 100vh;
+    margin: 0;
+    font-family: "mifuente";
+    overflow: hidden;
+    background-color: #f39c12;
+  /* Color de fondo inicial */
+  animation: changeColor 5s infinite alternate;
+  /* Duración de la animación: 5 segundos */
+}
+@keyframes changeColor {
+  0% {
+    background-color: #f39c12;
+    /* Color inicial */
+  }
+  100% {
+    background-color: #e67e22;
+    /* Color final */
+  }
+}
+
+.login-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.login-form {
+    width: 300px;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"],
+.login-form button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-family: "mifuente";
+    font-size: 16px;
+}
+
+.login-form button[type="submit"] {
+    background-color: grey;
+    color: white;
+    cursor: pointer;
+}
+
+.login-form button[type="submit"]:hover {
+    background-color: darkgray;
+}
+
+.login-form p {
+    font-size: 14px;
+}
+
+.login-form p a {
+    color: blue;
+    text-decoration: none;
+}
+
+.login-form p a:hover {
+    text-decoration: underline;
+}
+
+.back-link {
+    position: absolute; /* Posición absoluta para que se pueda colocar en cualquier parte del contenedor */
+    top: 20px; /* Ajusta la posición vertical según sea necesario */
+    left: 20px; /* Ajusta la posición horizontal según sea necesario */
+    font-size: 24px;
+    text-decoration: none;
+    color: black; /* Color del enlace */
+}
+
+#flecha{
+    width: 80px;
+    height: 80px;
+}
+
+@font-face {
+    font-family: "mifuente";
+    src: url(../assets/fonts/Super\ Senior\ Personal\ Use.ttf);
+}

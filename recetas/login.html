@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión</title>
+    <link rel="stylesheet" href="styles/login.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Iniciar sesión</h2>
+        <form class="login-form" action="php/login.php" method="POST"> <!-- Action podría apuntar a la página de procesamiento de inicio de sesión -->
+            <input type="text" name="username" placeholder="Usuario" required>
+            <input type="password" name="password" placeholder="Contraseña" required>
+            <button type="submit">Iniciar sesión</button>
+        </form>
+        <p>¿No tienes una cuenta? <a href="register.html">Regístrate aquí</a></p>
+        <br><br>
+        <a href="index.html"><img src="assets/img/flecha.png" alt="Volver" id="flecha"></a>
+    </div>
+</body>
+</html>
