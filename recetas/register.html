@@ -21,3 +21,42 @@
     </div>
 </body>
 </html>
+
+<?php
+// Verificar si se han enviado los datos del formulario
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Recibir y procesar los datos del formulario
+    $username = $_POST["username"];
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+
+    // Validar los datos del formulario
+    // Aquí puedes agregar cualquier validación adicional que desees, como verificar si el nombre de usuario o correo electrónico ya existen en la base de datos, etc.
+
+    // Conectar a la base de datos (reemplaza los valores con los de tu propia base de datos)
+    $conexion = mysqli_connect("localhost", "usuario", "contraseña", "basededatos");
+
+    // Verificar la conexión
+    if (mysqli_connect_errno()) {
+        echo "Error al conectar a la base de datos: " . mysqli_connect_error();
+        exit();
+    }
+
+    // Preparar la consulta para insertar los datos en la base de datos
+    $query = "INSERT INTO usuarios (username, email, password) VALUES ('$username', '$email', '$password')";
+
+    // Ejecutar la consulta
+    if (mysqli_query($conexion, $query)) {
+        // Registro exitoso
+        // Puedes redirigir al usuario a la página de inicio de sesión u otra página de confirmación
+        header("Location: login.html");
+        exit();
+    } else {
+        // Si hubo un error al ejecutar la consulta
+        echo "Error al registrar el usuario: " . mysqli_error($conexion);
+    }
+
+    // Cerrar la conexión a la base de datos
+    mysqli_close($conexion);
+}
+?>

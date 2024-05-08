@@ -9,7 +9,7 @@
 <body>
     <div class="login-container">
         <h2>Iniciar sesión</h2>
-        <form class="login-form" action="php/login.php" method="POST"> <!-- Action podría apuntar a la página de procesamiento de inicio de sesión -->
+        <form class="login-form" action="login.php" method="POST"> <!-- Action podría apuntar a la página de procesamiento de inicio de sesión -->
             <input type="text" name="username" placeholder="Usuario" required>
             <input type="password" name="password" placeholder="Contraseña" required>
             <button type="submit">Iniciar sesión</button>
@@ -20,3 +20,68 @@
     </div>
 </body>
 </html>
+
+
+<?php
+// Comprobamos si se han enviado los datos del formulario
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Verificamos si se han enviado ambos campos
+    if (isset($_POST["username"]) && isset($_POST["password"])) {
+        // Recibimos los datos del formulario
+        $username = $_POST["username"];
+        $password = $_POST["password"];
+        
+        // Aquí debes realizar la lógica de autenticación, por ejemplo, consultar una base de datos
+        // Si el usuario y la contraseña son válidos, redirigir al usuario a la página de inicio
+        // De lo contrario, mostrar un mensaje de error
+        
+        $conexion = new mysqli("localhost", "usuario", "contraseña", "basededatos");
+        
+        // Verificar la conexión
+        if ($conexion->connect_error) {
+            die("Error de conexión a la base de datos: " . $conexion->connect_error);
+        }
+        
+        // Preparar la consulta para buscar el usuario en la base de datos
+        $query = "SELECT * FROM usuarios WHERE username='$username' AND password='$password'";
+        
+        // Ejecutar la consulta
+        $resultado = $conexion->query($query);
+        
+        // Verificar si se encontró un usuario con las credenciales proporcionadas
+        if ($resultado->num_rows == 1) {
+            // Autenticación exitosa
+            session_start(); // Iniciar sesión
+            $_SESSION["username"] = $username; // Guardar el nombre de usuario en la sesión
+            header("Location: inicio.php"); // Redirigir al usuario a la página de inicio
+            exit;
+        } else {
+            // Usuario o contraseña incorrectos
+            echo "Usuario o contraseña incorrectos.";
+        }
+        
+        // Cerrar la conexión
+        $conexion->close();
+    } else {
+        // Si faltan campos en el formulario
+        echo "Por favor, complete ambos campos de usuario y contraseña.";
+    }
+
+        // Por ejemplo, supongamos que tenemos un usuario 'admin' con contraseña '1234'
+        if ($username === 'admin' && $password === '1234') {
+            // Autenticación exitosa
+            // Iniciar sesión, configurar variables de sesión, etc.
+            session_start();
+            $_SESSION["username"] = $username;
+            // Redireccionar al usuario a la página de inicio
+            header("Location: index.html");
+            exit;
+        } else {
+            // Usuario o contraseña incorrectos
+            echo "Usuario o contraseña incorrectos";
+        }
+    } else {
+        // Uno o ambos campos están vacíos
+        echo "Por favor, complete todos los campos";
+    }
+?>

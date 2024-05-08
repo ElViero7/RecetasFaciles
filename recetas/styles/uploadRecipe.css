@@ -1,0 +1,105 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    background-color: #f39c12;
+    /* Color de fondo inicial */
+    animation: changeColor 3s infinite alternate;
+    /* Duración de la animación: 5 segundos */
+}
+
+@keyframes changeColor {
+    0% {
+      background-color: #f39c12;
+      /* Color inicial */
+    }
+    100% {
+      background-color: #e67e22;
+      /* Color final */
+    }
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    max-width: 400px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+textarea,
+input[type="number"],
+input[type="search"],
+input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    width: 100%;
+    background-color: #ff8c00;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+input[type="submit"]:hover {
+    background-color: #e67e00;
+}
+
+/* Estilos específicos para el formulario de subir receta */
+#nombre,
+#descripcion,
+#ingredientes,
+#tiempo,
+#titulo,
+#foto {
+    margin-bottom: 20px;
+}
+
+#descripcion {
+    height: 100px;
+}
+
+/* Estilos para la etiqueta del campo de archivo (input[type="file"]) */
+label[for="foto"] {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Estilos para el texto del botón de subir receta */
+input[type="submit"] {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#flecha{
+    width: 80px;
+    height: 80px;
+}
+
