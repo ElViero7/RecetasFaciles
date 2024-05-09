@@ -9,14 +9,14 @@
 <body>
     <div class="login-container">
         <h2>Iniciar sesión</h2>
-        <form class="login-form" action="login.php" method="POST"> <!-- Action podría apuntar a la página de procesamiento de inicio de sesión -->
+        <form class="login-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST"> <!-- Action podría apuntar a la página de procesamiento de inicio de sesión -->
             <input type="text" name="username" placeholder="Usuario" required>
             <input type="password" name="password" placeholder="Contraseña" required>
             <button type="submit">Iniciar sesión</button>
         </form>
-        <p>¿No tienes una cuenta? <a href="register.html">Regístrate aquí</a></p>
+        <p>¿No tienes una cuenta? <a href="register.php">Regístrate aquí</a></p>
         <br><br>
-        <a href="index.html"><img src="assets/img/flecha.png" alt="Volver" id="flecha"></a>
+        <a href="index.php"><img src="assets/img/flecha.png" alt="Volver" id="flecha"></a>
     </div>
 </body>
 </html>
@@ -74,7 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             session_start();
             $_SESSION["username"] = $username;
             // Redireccionar al usuario a la página de inicio
-            header("Location: index.html");
+            header("Location: index.php");
             exit;
         } else {
             // Usuario o contraseña incorrectos

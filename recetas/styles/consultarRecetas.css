@@ -1,0 +1,57 @@
+body {
+    font-family: "mifuente";
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.recetas-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px;
+}
+
+.receta {
+    width: 300px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 20px;
+}
+
+.receta h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.receta p {
+    margin-bottom: 10px;
+}
+
+.receta ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.receta li {
+    margin-bottom: 5px;
+}
+
+.receta img {
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+@font-face {
+    font-family: "mifuente";
+    src: url(../assets/fonts/Super\ Senior\ Personal\ Use.ttf);
+}

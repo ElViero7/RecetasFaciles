@@ -1,6 +1,6 @@
 /* Estilos generales */
 body {
-    font-family: Arial, sans-serif;
+    font-family: "mifuente";
     background-color: #f9f9f9;
     margin: 0;
     padding: 0;
@@ -103,3 +103,7 @@ input[type="submit"] {
     height: 80px;
 }
 
+@font-face {
+    font-family: "mifuente";
+    src: url(../assets/fonts/Super\ Senior\ Personal\ Use.ttf);
+}

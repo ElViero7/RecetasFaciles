@@ -12,13 +12,13 @@
         <h1>Recetas fáciles</h1>
         <div class="box">
             <div class="left-column">
-                <a href="consultarRecetas.html"><button>Consultar recetas</button></a>
-                <a href="uploadRecipes.html"><button>Subir recetas</button></a>
+                <a href="consultarRecetas.php"><button>Consultar recetas</button></a>
+                <a href="uploadRecipes.php"><button>Subir recetas</button></a>
             </div>
             <div class="imagen"><img src="assets/img/tarta de queso.png" alt=""></div>
             <div class="right-column">
-                <a href="login.html"><button>Iniciar sesión</button></a>
-                <a href="register.html"><button>Registrarse</button></a>
+                <a href="login.php"><button>Iniciar sesión</button></a>
+                <a href="register.php"><button>Registrarse</button></a>
             </div>
         </div>
         <p>xakibr7ebgfjkda</p>

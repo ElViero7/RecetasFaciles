@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Consultar Recetas</title>
-    <link rel="stylesheet" href="styles/consulta_recetas.css">
+    <link rel="stylesheet" href="styles/consultarRecetas.css">
 </head>
 <body>
     <h1>Recetas Disponibles</h1>
     <div class="recetas-container">
         <?php include 'consultar_recetas.php'; ?>
     </div>
-    <a href="index.html"><img src="assets/img/flecha.png" alt="Volver" id="flecha"></a>
+    <a href="index.php"><img src="assets/img/flecha.png" alt="Volver" id="flecha"></a>
 </body>
 </html>
 

@@ -9,15 +9,15 @@
 <body>
     <div class="register-container">
         <h2>Registrarse</h2>
-        <form class="register-form" action="#" method="POST"> <!-- Action podría apuntar a la página de procesamiento de registro -->
+        <form class="register-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST"> <!-- Action podría apuntar a la página de procesamiento de registro -->
             <input type="text" name="username" placeholder="Usuario" required>
             <input type="email" name="email" placeholder="Correo electrónico" required>
             <input type="password" name="password" placeholder="Contraseña" required>
             <button type="submit">Registrarse</button>
         </form>
-        <p>¿Ya tienes una cuenta? <a href="login.html">Inicia sesión aquí</a></p> <!-- Podría enlazar a tu página de inicio de sesión -->
+        <p>¿Ya tienes una cuenta? <a href="login.php">Inicia sesión aquí</a></p> <!-- Podría enlazar a tu página de inicio de sesión -->
         <br><br>
-        <a href="index.html"><img src="assets/img/flecha.png" alt="Volver" id="flecha"></a>
+        <a href="index.php"><img src="assets/img/flecha.png" alt="Volver" id="flecha"></a>
     </div>
 </body>
 </html>
