@@ -46,7 +46,7 @@
             $categoria = $_POST["categoria"];
 
             // Conexión a la base de datos (reemplaza los valores con los de tu configuración)
-            $conexion = new mysqli("localhost", "root", "Edf9PlKgJbICA9VE", "recetasdb"); // Usuario: root, Contraseña: '', Base de datos: recetasdb
+            $conexion = new mysqli("localhost", "root", "", "recetasdb"); // Usuario: root, Contraseña: '', Base de datos: recetasdb
 
             // Verificar la conexión
             if ($conexion->connect_error) {

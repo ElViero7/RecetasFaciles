@@ -17,25 +17,21 @@
         <p>¿No tienes una cuenta? <a href="register.php">Regístrate aquí</a></p>
         <br><br>
         <a href="index.php"><img src="assets/img/flecha.png" alt="Volver" id="flecha"></a>
-    </div>
-</body>
-</html>
-
-
-<?php
+    
+        <?php
 // Comprobamos si se han enviado los datos del formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verificamos si se han enviado ambos campos
-    if (isset($_POST["cod_usuario"]) && isset($_POST["contraseña"])) {
+    if (isset($_POST["username"]) && isset($_POST["password"])) {
         // Recibimos los datos del formulario
-        $cod_usuario = $_POST["cod_usuario"];
-        $contraseña = $_POST["contraseña"];
+        $username = $_POST["username"];
+        $contraseña = $_POST["password"];
         
         // Aquí debes realizar la lógica de autenticación, por ejemplo, consultar una base de datos
         // Si el usuario y la contraseña son válidos, redirigir al usuario a la página de inicio
         // De lo contrario, mostrar un mensaje de error
         
-        $conexion = new mysqli("localhost", "root", "Edf9PlKgJbICA9VE", "recetasdb");
+        $conexion = new mysqli("localhost", "root", "", "recetasdb");
         
         // Verificar la conexión
         if ($conexion->connect_error) {
@@ -43,16 +39,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         
         // Preparar la consulta para buscar el usuario en la base de datos
-        $query = "SELECT * FROM usuarios WHERE cod_usuario='$cod_usuario' AND contraseña='$contraseña'";
+        $query = "SELECT * FROM usuarios WHERE username='$username' AND contraseña='$contraseña'";
         
         // Ejecutar la consulta
         $resultado = $conexion->query($query);
-        
         // Verificar si se encontró un usuario con las credenciales proporcionadas
         if ($resultado->num_rows == 1) {
+            $datos=$resultado->fetch_assoc();
             // Autenticación exitosa
             session_start(); // Iniciar sesión
-            $_SESSION["cod_usuario"] = $cod_usuario; // Guardar el nombre de usuario en la sesión
+            $_SESSION["user_data"] = $datos; // Guardar el nombre de usuario en la sesión
+            $_SESSION["isAdmin"] = $username == 'admin';
+            if ($username='admin'){
+                header("Location: admin.php");
+                return;
+            }
             header("Location: index.php"); // Redirigir al usuario a la página de inicio
             exit;
         } else {
@@ -68,11 +69,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
         // Por ejemplo, supongamos que tenemos un usuario 'admin' con contraseña '1234'
-        if ($cod_usuario === 'admin' && $contraseña === '1234') {
+        if ($username === 'admin' && $contraseña === '1234') {
             // Autenticación exitosa
             // Iniciar sesión, configurar variables de sesión, etc.
             session_start();
-            $_SESSION["cod_usuario"] = $cod_usuario;
+            $_SESSION["cod_usuario"] = $username;
             // Redireccionar al usuario a la página de inicio
             header("Location: index.php");
             exit;
@@ -85,3 +86,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Por favor, complete todos los campos";
     }
 ?>
+    </div>
+</body>
+</html>
+
+

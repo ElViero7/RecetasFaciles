@@ -8,14 +8,11 @@
 </head>
 <body>
     <h1>Recetas Disponibles</h1>
-    <div class="recetas-container">
-        <?php include 'consultar_recetas.php'; ?>
-    </div>
     <a href="index.php"><img src="assets/img/flecha.png" alt="Volver" id="flecha"></a>
     
     <?php
     // Conexión a la base de datos
-    $conexion = new mysqli("localhost", "root", "Edf9PlKgJbICA9VE", "recetasdb");
+    $conexion = new mysqli("127.0.0.1", "root", "", "recetasdb");
 
     // Verificar la conexión
     if ($conexion->connect_error) {

@@ -107,6 +107,8 @@
         <input type="number" id="id" name="id" required><br>
         <input type="submit" value="Eliminar Receta">
     </form>
+
+    <a href="index.php"><img src="assets/img/flecha.png" alt="Volver" id="flecha"></a>
 </body>
 </html>
 
