@@ -98,9 +98,13 @@ input[type="submit"] {
     font-weight: bold;
 }
 
-#flecha{
-    width: 80px;
-    height: 80px;
+#flecha {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 150px;
+    height: auto;
+    z-index: 1000; /* Asegura que la flecha esté sobre cualquier otro contenido */
 }
 
 @font-face {

@@ -9,7 +9,7 @@
 <body>
     <div class="register-container">
         <h2>Registrarse</h2>
-        <form class="register-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST"> <!-- Action podría apuntar a la página de procesamiento de registro -->
+        <form class="register-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" enctype="multipart/form-data"> <!-- Action podría apuntar a la página de procesamiento de registro -->
             <input type="text" name="username" placeholder="Usuario" required>
             <input type="email" name="email" placeholder="Correo electrónico" required>
             <input type="password" name="password" placeholder="Contraseña" required>
@@ -23,40 +23,34 @@
 </html>
 
 <?php
-// Verificar si se han enviado los datos del formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Recibir y procesar los datos del formulario
-    $username = $_POST["username"];
+    // Obtener los valores del formulario
+    $cod_usuario = $_POST["username"];
     $email = $_POST["email"];
-    $password = $_POST["password"];
+    $contraseña = $_POST["password"];
 
-    // Validar los datos del formulario
-    // Aquí puedes agregar cualquier validación adicional que desees, como verificar si el nombre de usuario o correo electrónico ya existen en la base de datos, etc.
-
-    // Conectar a la base de datos (reemplaza los valores con los de tu propia base de datos)
-    $conexion = mysqli_connect("localhost", "usuario", "contraseña", "basededatos");
+    // Conexión a la base de datos
+    $conexion = new mysqli("localhost", "root", "Edf9PlKgJbICA9VE", "recetasdb");
 
     // Verificar la conexión
-    if (mysqli_connect_errno()) {
-        echo "Error al conectar a la base de datos: " . mysqli_connect_error();
-        exit();
+    if ($conexion->connect_error) {
+        die("Error de conexión a la base de datos: " . $conexion->connect_error);
     }
 
-    // Preparar la consulta para insertar los datos en la base de datos
-    $query = "INSERT INTO usuarios (username, email, password) VALUES ('$username', '$email', '$password')";
+    // Valor booleano para el campo is_admin
+    $admin = false; // Cambia esto según tus necesidades
+
+    // Preparar la consulta SQL
+    $query = "INSERT INTO usuarios (cod_usuario, correo_electronico, contraseña, admin) VALUES ('$cod_usuario', '$correo_electronico', '$contraseña', '$admin')";
 
     // Ejecutar la consulta
-    if (mysqli_query($conexion, $query)) {
-        // Registro exitoso
-        // Puedes redirigir al usuario a la página de inicio de sesión u otra página de confirmación
-        header("Location: login.html");
-        exit();
+    if ($conexion->query($query) === TRUE) {
+        echo "¡Registro exitoso!";
     } else {
-        // Si hubo un error al ejecutar la consulta
-        echo "Error al registrar el usuario: " . mysqli_error($conexion);
+        echo "Error al registrar el usuario: " . $conexion->error;
     }
 
-    // Cerrar la conexión a la base de datos
-    mysqli_close($conexion);
+    // Cerrar la conexión
+    $conexion->close();
 }
 ?>

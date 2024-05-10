@@ -25,7 +25,7 @@
             <option value="Primero">Primero</option>
             <option value="Segundo">Segundo</option>
             <option value="Postre">Postre</option>
-        </select><br>
+        </select><br><br>
         <label for="foto">Subir foto:</label><br>
         <input type="file" id="foto" name="foto" required><br>
         <!-- Otros campos como ingredientes, instrucciones, etc. -->
@@ -46,7 +46,7 @@
             $categoria = $_POST["categoria"];
 
             // Conexión a la base de datos (reemplaza los valores con los de tu configuración)
-            $conexion = new mysqli("localhost", "root", "", "recetasdb"); // Usuario: root, Contraseña: '', Base de datos: recetasdb
+            $conexion = new mysqli("localhost", "root", "Edf9PlKgJbICA9VE", "recetasdb"); // Usuario: root, Contraseña: '', Base de datos: recetasdb
 
             // Verificar la conexión
             if ($conexion->connect_error) {

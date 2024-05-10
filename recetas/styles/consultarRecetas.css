@@ -3,27 +3,36 @@ body {
     background-color: #f9f9f9;
     margin: 0;
     padding: 0;
+    position: relative; /* Agregado para que el posicionamiento de la flecha sea relativo al cuerpo */
+    background-color: #f39c12;
+    /* Color de fondo inicial */
+    animation: changeColor 3s infinite alternate;
+    /* Duración de la animación: 5 segundos */
 }
 
 h1 {
     text-align: center;
     margin-top: 20px;
+    font-size: 45px;
 }
 
 .recetas-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 20px;
+    margin: 20px auto; /* Cambiado para centrar las recetas horizontalmente */
+    max-width: 800px; /* Agregado para limitar el ancho de las recetas */
 }
 
 .receta {
-    width: 300px;
+    width: 50%;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 10px;
+    margin-right: 25%;
+    margin-left: 25%;
     padding: 20px;
+    margin-bottom: 20px;
 }
 
 .receta h2 {
@@ -46,9 +55,19 @@ h1 {
 }
 
 .receta img {
-    width: 100%;
+    float: right; /* Coloca la imagen a la derecha */
+    width: 40%; /* Ajusta el ancho según sea necesario */
     border-radius: 8px;
-    margin-top: 10px;
+    margin-left: 20px; /* Espacio entre la imagen y el contenido de texto */
+}
+
+#flecha {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 150px;
+    height: auto;
+    z-index: 1000; /* Asegura que la flecha esté sobre cualquier otro contenido */
 }
 
 @font-face {
