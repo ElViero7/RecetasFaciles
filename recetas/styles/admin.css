@@ -1,3 +1,76 @@
+body {
+    font-family: "mifuente";
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+    background-color: #f39c12;
+    /* Color de fondo inicial */
+    animation: changeColor 3s infinite alternate;
+    /* Duración de la animación: 5 segundos */
+}
+
+@keyframes changeColor {
+    0% {
+      background-color: #f39c12;
+      /* Color inicial */
+    }
+    100% {
+      background-color: #e67e22;
+      /* Color final */
+    }
+}
+
+h2 {
+    text-align: center;
+}
+
+h3 {
+    margin-top: 20px;
+}
+
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input[type="checkbox"] {
+    margin-top: 10px;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #f39c12;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #f39c12;
+}
+
 #flecha {
     position: fixed;
     bottom: 20px;
@@ -5,4 +78,9 @@
     width: 150px;
     height: auto;
     z-index: 1000; /* Asegura que la flecha esté sobre cualquier otro contenido */
+}
+
+@font-face {
+    font-family: "mifuente";
+    src: url(../assets/fonts/Super\ Senior\ Personal\ Use.ttf);
 }

@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             session_start(); // Iniciar sesión
             $_SESSION["user_data"] = $datos; // Guardar el nombre de usuario en la sesión
             $_SESSION["isAdmin"] = $username == 'admin';
-            if ($username='admin'){
+            if ($username=='admin'){
                 header("Location: admin.php");
                 return;
             }

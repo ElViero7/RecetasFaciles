@@ -29,10 +29,11 @@ h1 {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-right: 25%;
-    margin-left: 25%;
+    margin-right: auto; /* Para centrar la receta horizontalmente */
+    margin-left: auto; /* Para centrar la receta horizontalmente */
     padding: 20px;
     margin-bottom: 20px;
+    position: relative; /* Agregado para posicionar la imagen dentro de la receta */
 }
 
 .receta h2 {
@@ -55,10 +56,12 @@ h1 {
 }
 
 .receta img {
-    float: right; /* Coloca la imagen a la derecha */
-    width: 40%; /* Ajusta el ancho según sea necesario */
-    border-radius: 8px;
-    margin-left: 20px; /* Espacio entre la imagen y el contenido de texto */
+    position: absolute; /* Posiciona la imagen de forma absoluta dentro de la receta */
+    top: 50%; /* Coloca la parte superior de la imagen en el centro vertical de la receta */
+    right: 20px; /* Coloca la imagen a 20px del borde derecho de la receta */
+    transform: translateY(-50%); /* Centra verticalmente la imagen */
+    width: 100px;
+    height: 100px;
 }
 
 #flecha {
