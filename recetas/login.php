@@ -9,7 +9,7 @@
 <body>
     <div class="login-container">
         <h2>Iniciar sesión</h2>
-        <form class="login-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST"> <!-- Action podría apuntar a la página de procesamiento de inicio de sesión -->
+        <form class="login-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
             <input type="text" name="username" placeholder="Usuario" required>
             <input type="password" name="password" placeholder="Contraseña" required>
             <button type="submit">Iniciar sesión</button>
@@ -26,10 +26,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Recibimos los datos del formulario
         $username = $_POST["username"];
         $contraseña = $_POST["password"];
-        
-        // Aquí debes realizar la lógica de autenticación, por ejemplo, consultar una base de datos
-        // Si el usuario y la contraseña son válidos, redirigir al usuario a la página de inicio
-        // De lo contrario, mostrar un mensaje de error
         
         $conexion = new mysqli("localhost", "root", "", "recetasdb");
         
@@ -68,10 +64,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Por favor, complete ambos campos de usuario y contraseña.";
     }
 
-        // Por ejemplo, supongamos que tenemos un usuario 'admin' con contraseña '1234'
         if ($username === 'admin' && $contraseña === '1234') {
             // Autenticación exitosa
-            // Iniciar sesión, configurar variables de sesión, etc.
             session_start();
             $_SESSION["cod_usuario"] = $username;
             // Redireccionar al usuario a la página de inicio

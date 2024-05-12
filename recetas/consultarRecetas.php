@@ -31,13 +31,15 @@
             echo "<div class='receta'>";
             echo "<h2>" . $row["nombre"] . "</h2>";
             echo "<p>" . $row["descripcion"] . "</p>";
+            echo "<p>" . $row["ingredientes"] . "</p>";
+            echo "<p>" . $row["tiempo"] . "minutos" . "</p>";
+            echo "<p>" . $row["categoria"] . "</p>";
             // Mostrar la imagen si la ruta está definida
             if (!empty($row["foto"])) {
                 echo "<img src='" . $row["foto"] . "' alt='Imagen de la receta'>";
             } else {
                 echo "Imagen no disponible";
             }
-            // Aquí puedes mostrar más detalles de la receta si lo deseas
             echo "</div>";
         }
     } else {

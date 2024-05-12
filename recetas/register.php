@@ -12,14 +12,13 @@
     <div class="register-container">
         <h2>Registrarse</h2>
         <form class="register-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST"
-            enctype="multipart/form-data"> <!-- Action podría apuntar a la página de procesamiento de registro -->
+            enctype="multipart/form-data">
             <input type="text" name="username" placeholder="Usuario" required>
             <input type="email" name="correo_electronico" placeholder="Correo electrónico" required>
             <input type="password" name="contraseña" placeholder="Contraseña" required>
             <button type="submit">Registrarse</button>
         </form>
         <p>¿Ya tienes una cuenta? <a href="login.php">Inicia sesión aquí</a></p>
-        <!-- Podría enlazar a tu página de inicio de sesión -->
         <br><br>
         <a href="index.php"><img src="assets/img/flecha.png" alt="Volver" id="flecha"></a>
     
@@ -39,8 +38,8 @@
             die("Error de conexión a la base de datos: " . $conexion->connect_error);
         }
 
-        // Valor booleano para el campo is_admin
-        $admin = false; // Cambia esto según tus necesidades
+        // Valor booleano para el campo admin
+        $admin = false;
     
         // Preparar la consulta SQL
         $query = "INSERT INTO usuarios (cod_usuario, username, correo_electronico, contraseña, admin) VALUES ('$cod_usuario', '$username', '$correo_electronico', '$contraseña', '$admin')";

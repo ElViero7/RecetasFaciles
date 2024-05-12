@@ -28,7 +28,6 @@
         </select><br><br>
         <label for="foto">Subir foto:</label><br>
         <input type="file" id="foto" name="foto" required><br>
-        <!-- Otros campos como ingredientes, instrucciones, etc. -->
         <input type="submit" value="Subir Receta">
     </form>
     <a href="index.php"><img src="assets/img/flecha.png" alt="Volver" id="flecha"></a>
@@ -45,8 +44,8 @@
             $tiempo = $_POST["tiempo"];
             $categoria = $_POST["categoria"];
 
-            // Conexión a la base de datos (reemplaza los valores con los de tu configuración)
-            $conexion = new mysqli("localhost", "root", "", "recetasdb"); // Usuario: root, Contraseña: '', Base de datos: recetasdb
+            // Conexión a la base de datos
+            $conexion = new mysqli("localhost", "root", "", "recetasdb");
 
             // Verificar la conexión
             if ($conexion->connect_error) {

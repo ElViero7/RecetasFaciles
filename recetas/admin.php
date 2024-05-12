@@ -55,7 +55,6 @@
     <!-- Formulario para crear una nueva receta -->
     <h3>Crear nueva receta</h3>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-        <!-- Campos para la receta -->
         <label for="nombre">Nombre:</label><br>
         <input type="text" id="nombre" name="nombre" required><br>
         <label for="descripcion">Descripción:</label><br>
@@ -75,7 +74,6 @@
     <!-- Formulario para editar una receta existente -->
     <h3>Editar receta</h3>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-        <!-- Campos para editar la receta -->
         <label for="id">ID de la receta:</label><br>
         <input type="number" id="id" name="id" required><br>
         <label for="nombre">Nombre:</label><br>
@@ -97,7 +95,6 @@
     <!-- Formulario para eliminar una receta existente -->
     <h3>Eliminar receta</h3>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-        <!-- Campo para el ID de la receta a eliminar -->
         <label for="id">ID de la receta:</label><br>
         <input type="number" id="id" name="id" required><br>
         <input type="hidden" name="delete_recipe" value="1">
@@ -193,14 +190,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['create_recipe'])) {
     $ingredientes = $_POST['ingredientes'];
     $tiempo = $_POST['tiempo'];
     $categoria = $_POST['categoria'];
-    // Aquí deberías manejar la subida de la foto, guardando la ruta en la base de datos
 
-    // Ejemplo de cómo podría ser el manejo de la subida de la foto:
+    // Manejo de la subida de la foto:
     $foto = $_FILES['foto']['name'];
     $ruta = "uploads" . $foto;
     move_uploaded_file($_FILES['foto']['tmp_name'], $ruta);
 
-    // Luego, inserta los datos en la base de datos
     $sql = "INSERT INTO recetas (nombre, descripcion, ingredientes, tiempo, categoria, foto) 
             VALUES ('$nombre', '$descripcion', '$ingredientes', '$tiempo', '$categoria', '$ruta')";
 
@@ -216,11 +211,9 @@ $sql = "SELECT * FROM recetas";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-    // Si hay al menos una receta, crea una tabla para mostrarlas
     echo "<h3>Recetas existentes</h3>";
     echo "<table><tr><th>ID</th><th>Nombre</th><th>Descripción</th><th>Ingredientes</th><th>Tiempo</th><th>Categoría</th><th>Foto</th></tr>";
 
-    // Itera sobre cada fila de resultados y muestra la información de la receta en la tabla
     while ($row = $result->fetch_assoc()) {
         echo "<tr>";
         echo "<td>" . $row["id"] . "</td>";
@@ -229,7 +222,7 @@ if ($result->num_rows > 0) {
         echo "<td>" . $row["ingredientes"] . "</td>";
         echo "<td>" . $row["tiempo"] . "</td>";
         echo "<td>" . $row["categoria"] . "</td>";
-        echo "<td><img src='" . $row["foto"] . "' alt='" . $row["nombre"] . "'></td>"; // Muestra la foto de la receta
+        echo "<td><img src='" . $row["foto"] . "' alt='" . $row["nombre"] . "'></td>";
         echo "</tr>";
     }
 
@@ -247,7 +240,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['edit_recipe'])) {
     $ingredientes = $_POST['ingredientes'];
     $tiempo = $_POST['tiempo'];
     $categoria = $_POST['categoria'];
-    $foto = $_POST['foto']; // Esto debería ser manejado adecuadamente, por ejemplo, subiendo la imagen al servidor y guardando su ruta en la base de datos
+    $foto = $_POST['foto'];
 
     // Consulta SQL para actualizar la receta en la base de datos
     $sql = "UPDATE recetas SET nombre='$nombre', descripcion='$descripcion', ingredientes='$ingredientes', tiempo='$tiempo', categoria='$categoria', foto='$foto' WHERE id='$id'";
